@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 				nft;
 
 			//This condition will filter the nfts based on the name of the nft
-			if (rawMetadata.name === "goku" || rawMetadata.name === "mikasa") {
+			if (rawMetadata.name === "goku" || rawMetadata.name === "mikasa" || rawMetadata.name === "itadori" || rawMetadata.name === "kagome" || rawMetadata.name === "naruto" || rawMetadata.name.includes("Kuraia")) {
 
 				return {
 					contract: contract.address,
