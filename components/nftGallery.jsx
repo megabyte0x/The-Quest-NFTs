@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/NftGallery.module.css";
+import Spinner from "./Spinner";
 
 export default function NFTGallery({}) {
   const [nfts, setNfts] = useState();
@@ -48,7 +49,7 @@ export default function NFTGallery({}) {
     <div className={styles.nft_gallery_page}>
       <div>
         <div className={styles.fetch_selector_container}>
-          <h2 style={{ fontSize: "20px" }}>Polygon Advocate: The Quest NFTs</h2>
+          <h2 style={{ fontSize: "32px" }}>Polygon Advocate: The Quest NFTs</h2>
         </div>
         <div className={styles.inputs_container}>
           <div className={styles.input_button_container}>
@@ -68,7 +69,7 @@ export default function NFTGallery({}) {
 
       {isLoading ? (
         <div className={styles.loading_box}>
-          <p>Loading...</p>
+          <Spinner></Spinner>
         </div>
       ) : (
         <div className={styles.nft_gallery}>
@@ -79,7 +80,7 @@ export default function NFTGallery({}) {
               })
             ) : (
               <div className={styles.loading_box}>
-                <p>No NFTs found for the selected address</p>
+                <img className="image-403" src="http://salehriaz.com/404Page/img/404.svg" width="300px" />
               </div>
             )}
           </div>
@@ -124,7 +125,7 @@ function NftCard({ nft }) {
         <div className={styles.description_container}>
           <p>{nft?.description ? nft?.description : null}</p>
         </div>
-        <div className={styles.description_container}>
+        <div className={styles.description_container_2}>
           {
             <a
               href={
