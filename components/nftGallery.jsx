@@ -80,7 +80,11 @@ export default function NFTGallery({}) {
               })
             ) : (
               <div className={styles.loading_box}>
-                <img className="image-403" src="http://salehriaz.com/404Page/img/404.svg" width="300px" />
+                <img
+                  className="image-403"
+                  src="http://salehriaz.com/404Page/img/404.svg"
+                  width="300px"
+                />
               </div>
             )}
           </div>
