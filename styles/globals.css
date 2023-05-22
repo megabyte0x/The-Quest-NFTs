@@ -127,7 +127,7 @@ a {
 
 .bg-purple{
     position: relative;
-    background-image: url(https://img.freepik.com/free-vector/gradient-japanese-temple-with-sun_52683-44985.jpg?w=1800&t=st=1684762519~exp=1684763119~hmac=ce6cbad65af50bbf78449866b66bdbd652d47b70876ec6d721dcd1d1b05a01ad);
+    background-image: url(../public//BG.jpg);
     background-size: cover;
     background-attachment: fixed;
 	width: 100%;
