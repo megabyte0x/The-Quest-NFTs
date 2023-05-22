@@ -1,24 +1,17 @@
 import { useSignMessage } from "wagmi";
 
 export default function Grafiti({}) {
-  const { signMessage } = useSignMessage();
-
-  const handleClick = () => {
-    signMessage({
-      message: "gm wagmi frens",
-      onSuccess(data) {
-        console.log("Success", data);
-      },
-      onError(error) {
-        console.log("Error", error);
-      },
-    });
-  };
+  const { data, error, loading, signMessage } = useSignMessage({
+    message: "gm wagmi frens",
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
 
   // returning componeneting showcasing a button to sign the message
   return (
     <div>
-      <button onClick={handleClick}>Sign Message</button>
+      <button onClick={() => signMessage()}>Sign Message</button>
     </div>
   );
 }
