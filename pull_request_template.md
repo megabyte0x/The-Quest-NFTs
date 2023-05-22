@@ -1,0 +1,4 @@
+- [ ] Created PR on the `dev` branch
+- [ ] PR contains the screen recording of changes
+- [ ] PR has the description of the changes made.
+- [ ] PR has the issue related to it linked.
