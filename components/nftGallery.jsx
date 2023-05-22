@@ -49,7 +49,10 @@ export default function NFTGallery({}) {
     <div className={styles.nft_gallery_page}>
       <div>
         <div className={styles.fetch_selector_container}>
-          <h2 style={{ fontSize: "32px" }}>Polygon Advocate: The Quest NFTs</h2>
+          <h2>
+            Polygon Advocate: <br />
+            <span>The Quest NFTs</span>
+          </h2>
         </div>
         <div className={styles.inputs_container}>
           <div className={styles.input_button_container}>
@@ -60,7 +63,7 @@ export default function NFTGallery({}) {
               }}
               placeholder="Insert NFTs contract or wallet address"
             ></input>
-            <div onClick={() => fetchNFTs()} className={styles.button_black}>
+            <div onClick={() => fetchNFTs()} className={styles.submit_button}>
               <a>Search</a>
             </div>
           </div>
@@ -80,7 +83,11 @@ export default function NFTGallery({}) {
               })
             ) : (
               <div className={styles.loading_box}>
-                <img className="image-403" src="http://salehriaz.com/404Page/img/404.svg" width="300px" />
+                <img
+                  className="image-403"
+                  src="http://salehriaz.com/404Page/img/404.svg"
+                  width="300px"
+                />
               </div>
             )}
           </div>
@@ -109,36 +116,30 @@ function NftCard({ nft }) {
         {<img src={nft?.media}></img>}
       </div>
       <div className={styles.info_container}>
-        <div className={styles.title_container}>
-          <h3>{nft?.title}</h3>
-        </div>
-        <hr className={styles.separator} />
-        <div className={styles.symbol_contract_container}>
-          <div className={styles.contract_container}>
-            <p className={styles.contract_container}>
-              {nft?.contract?.slice(0, 6)}...
-              {nft?.contract?.slice(38)}
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.description_container}>
-          <p>{nft?.description ? nft?.description : null}</p>
-        </div>
-        <div className={styles.description_container_2}>
-          {
-            <a
-              href={
-                "https://opensea.io/assets/matic/" +
-                nft.contract +
-                "/" +
-                nft.tokenId
+          <div className={styles.title_container}>
+            <h3>{nft?.title}</h3>
+            <div className={styles.description_container_2}>
+              {
+                <a
+                  href={
+                    "https://opensea.io/assets/matic/" +
+                    nft.contract +
+                    "/" +
+                    nft.tokenId
+                  }
+                >
+                  <img src="./opensea-logo.svg" alt="opensea" />
+                </a>
               }
-            >
-              OpenSea Link
-            </a>
-          }
-        </div>
+            </div>
+          </div>
+          <hr className={styles.separator} />
+          <div className={styles.symbol_contract_container}>
+          </div>
+
+          <div className={styles.description_container}>
+            <p>{nft?.description ? nft?.description : null}</p>
+          </div>
       </div>
     </div>
   ) : null;

@@ -125,26 +125,31 @@ a {
     transform: rotate(-3600deg) !important;
 }
 
-html, body{
-   
-}
-
 .bg-purple{
-    background: url(http://salehriaz.com/404Page/img/bg_purple.png);
-    background-repeat: repeat-x;
+    position: relative;
+    background-image: url(https://img.freepik.com/free-vector/gradient-japanese-temple-with-sun_52683-44985.jpg?w=1800&t=st=1684762519~exp=1684763119~hmac=ce6cbad65af50bbf78449866b66bdbd652d47b70876ec6d721dcd1d1b05a01ad);
     background-size: cover;
-    background-position: left top;
-    overflow: hidden;
-	font-family: 'Dosis', sans-serif;
-    font-weight: 300;
+    background-attachment: fixed;
 	width: 100%;
-    height: 100%;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	-webkit-user-select: none; /* Safari 3.1+ */
     -moz-user-select: none; /* Firefox 2+ */
     -ms-user-select: none;
 	user-select: none; /* Standard syntax */ /* IE 10+ */
 }
+.bg-purple:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
 
 .custom-navbar{
     padding-top: 15px;
