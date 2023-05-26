@@ -14,35 +14,30 @@ export default async function handler(req, res) {
     const alchemy = new Alchemy(settings);
 
     try {
-        const response = await alchemy.core.getAssetTransfers({
+        const responseWithTokenId = await alchemy.core.getAssetTransfers({
             fromBlock: "0x0",
             fromAddress: "0x13d089a60817F4d8DA1CA269D02893a4f457d303",
             excludeZeroValue: true,
             category: ["erc1155"],
             order: "desc",
             withMetadata: false,
-
         }).then((data) => {
-            return data.transfers.slice(0, 5);
-        });
-
-        const formattedTransfers =
-            response.map((transfer) => {
-                const { to, erc1155Metadata } = transfer;
+            const lastestFive = data.transfers.slice(0, 5);
+            response.map((lastestFive) => {
+                const { to, erc1155Metadata, hash } = lastestFive;
                 return {
                     to: to,
                     tokenId: erc1155Metadata[0].tokenId,
+                    transactionLink: `https://polygonscan.com/tx/+${hash}`
                 };
             });
-        console.log(formattedTransfers); // [{ to: '0x...', tokenId: 1 }, ...]
-
-        res.status(200).json({
-            transactions: formattedTransfers,
         });
+        res.status(200).send(responseWithTokenId);
     } catch (e) {
         console.warn(e);
         res.status(500).send({
             message: "something went wrong, check the log in your terminal",
         });
     }
+
 }
