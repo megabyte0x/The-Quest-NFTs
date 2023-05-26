@@ -10,6 +10,7 @@
 		"marketplace": "npx create-web3-dapp marketplace"
 	},
 	"dependencies": {
+		"@next/font": "^13.4.4",
 		"@rainbow-me/rainbowkit": "^0.12.4",
 		"@vercel/analytics": "^1.0.1",
 		"alchemy-sdk": "^2.6.2",
