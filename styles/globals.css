@@ -1,8 +1,8 @@
 html,
 body {
-	background-color: rgb(253, 253, 253);
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		z-index: 200;
 }
 h1{
 	margin-bottom: 1rem;
@@ -26,7 +26,109 @@ a {
 	margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-	html {
-	}
+/* Spinner CSS Starts  */
+.loading-spinner {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%) translateZ(0);
+    top: 50%;
+    width: 90px;
+    height: 90px;
+    z-index: 1;
+    background: url(https://cdn.iconscout.com/icon/free/png-256/free-polygon-token-4086724-3379854.png) center no-repeat;
+    background-size: contain;
+	  /*animation: spinning 1.5s infinite ease-in-out;*/
+}
+
+.loading-spinner:after {
+	content:"";
+	position:absolute;
+	width:120px;
+	height:120px;
+	background-color:rgba(0,0,0,0);
+	border-radius:100%;
+	margin:-15px;
+	box-shadow: 0 4px 0 0 #000;
+	transition: all 1s linear;
+	animation: lds-eclipse 1s linear infinite;
+}
+
+
+
+@keyframes spinning {
+	0% { transform: translate(-50%,-50%) scale(1) translateZ(0);}
+	50% { transform: translate(-50%,-50%) scale(1.1) translateZ(0);}
+	100% { transform: translate(-50%,-50%) scale(1) translateZ(0);}
+}
+
+@keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.bg-purple{
+    position: relative;
+    background-image: url(../public//BG.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+	width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	-webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none;
+	user-select: none; /* Standard syntax */ /* IE 10+ */
+}
+.bg-purple:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    align-items: center; 
+}
+
+li {
+    float: left;
+    padding: 0px 15px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing : 2px;
+    font-size: 12px;
+    
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+li a:hover {
+    color: #ffcb39;
 }

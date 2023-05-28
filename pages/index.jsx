@@ -3,7 +3,7 @@ import NFTGallery from "../components/nftGallery";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-purple">
       <main className={styles.main}>
         <NFTGallery />
       </main>

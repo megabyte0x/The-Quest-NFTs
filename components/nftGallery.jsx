@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/NftGallery.module.css";
+import Spinner from "./Spinner";
+
+import localFont from "@next/font/local";
+
+const chinese_shangai = localFont({
+  src: "../public/chineseshangaidemoversionregular-domne.woff2",
+});
+const qatora = localFont({
+  src: "../public/qatorapersonaluse-rplx3.woff2",
+});
 
 export default function NFTGallery({}) {
   const [nfts, setNfts] = useState();
@@ -47,9 +57,15 @@ export default function NFTGallery({}) {
   return (
     <div className={styles.nft_gallery_page}>
       <div>
-        <div className={styles.fetch_selector_container}>
-          <h2 style={{ fontSize: "20px" }}>Polygon Advocate: The Quest NFTs</h2>
+        <div className={chinese_shangai.className}>
+          <div className={styles.fetch_selector_container}>
+            <h2>
+              Polygon Advocate: <br />
+              <span>The Quest NFTs</span>
+            </h2>
+          </div>
         </div>
+
         <div className={styles.inputs_container}>
           <div className={styles.input_button_container}>
             <input
@@ -59,7 +75,7 @@ export default function NFTGallery({}) {
               }}
               placeholder="Insert NFTs contract or wallet address"
             ></input>
-            <div onClick={() => fetchNFTs()} className={styles.button_black}>
+            <div onClick={() => fetchNFTs()} className={styles.submit_button}>
               <a>Search</a>
             </div>
           </div>
@@ -68,7 +84,7 @@ export default function NFTGallery({}) {
 
       {isLoading ? (
         <div className={styles.loading_box}>
-          <p>Loading...</p>
+          <Spinner></Spinner>
         </div>
       ) : (
         <div className={styles.nft_gallery}>
@@ -79,7 +95,11 @@ export default function NFTGallery({}) {
               })
             ) : (
               <div className={styles.loading_box}>
-                <p>No NFTs found for the selected address</p>
+                <img
+                  className="image-403"
+                  src="http://salehriaz.com/404Page/img/404.svg"
+                  width="300px"
+                />
               </div>
             )}
           </div>
@@ -109,34 +129,27 @@ function NftCard({ nft }) {
       </div>
       <div className={styles.info_container}>
         <div className={styles.title_container}>
-          <h3>{nft?.title}</h3>
-        </div>
-        <hr className={styles.separator} />
-        <div className={styles.symbol_contract_container}>
-          <div className={styles.contract_container}>
-            <p className={styles.contract_container}>
-              {nft?.contract?.slice(0, 6)}...
-              {nft?.contract?.slice(38)}
-            </p>
+          <h3 className={qatora.className}>{nft?.title}</h3>
+          <div className={styles.description_container_2}>
+            {
+              <a
+                href={
+                  "https://opensea.io/assets/matic/" +
+                  nft.contract +
+                  "/" +
+                  nft.tokenId
+                }
+              >
+                <img src="./opensea-logo.svg" alt="opensea" />
+              </a>
+            }
           </div>
         </div>
+        <hr className={styles.separator} />
+        <div className={styles.symbol_contract_container}></div>
 
         <div className={styles.description_container}>
           <p>{nft?.description ? nft?.description : null}</p>
-        </div>
-        <div className={styles.description_container}>
-          {
-            <a
-              href={
-                "https://opensea.io/assets/matic/" +
-                nft.contract +
-                "/" +
-                nft.tokenId
-              }
-            >
-              OpenSea Link
-            </a>
-          }
         </div>
       </div>
     </div>
