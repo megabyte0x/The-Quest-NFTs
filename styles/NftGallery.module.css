@@ -1,18 +1,3 @@
-@font-face {
-  font-family: Chinese_Shangai;
-  src: url("../public/chineseshangaidemoversionregular-domne.woff2")
-    format("woff2");
-  font-style: normal;
-  font-weight: 300 800;
-}
-
-@font-face {
-  font-family: qatora;
-  src: url("../public/qatorapersonaluse-rplx3.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 300 800;
-}
-
 .nft_gallery_page {
   display: flex;
   flex-direction: column;
@@ -56,12 +41,12 @@
 }
 
 .fetch_selector_container > h2 {
-  font-family: "Chinese_Shangai";
+
   font-size: 48px;
 }
 
 .fetch_selector_container > h2 > span {
-  font-family: "Chinese_Shangai", cursive;
+
   font-size: 65px;
   font-weight: 200;
 }
@@ -297,7 +282,6 @@
 .title_container h3 {
   text-transform: capitalize;
   font-weight: bold;
-  font-family: "qatora";
   letter-spacing: 3px;
   font-size: 25px;
 }

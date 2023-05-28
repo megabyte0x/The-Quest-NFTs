@@ -2,6 +2,15 @@ import { useEffect, useState } from "react";
 import styles from "../styles/NftGallery.module.css";
 import Spinner from "./Spinner";
 
+import localFont from "@next/font/local";
+
+const chinese_shangai = localFont({
+  src: "../public/chineseshangaidemoversionregular-domne.woff2",
+});
+const qatora = localFont({
+  src: "../public/qatorapersonaluse-rplx3.woff2",
+});
+
 export default function NFTGallery({}) {
   const [nfts, setNfts] = useState();
   const [walletOrCollectionAddress, setWalletOrCollectionAddress] = useState(
@@ -48,12 +57,15 @@ export default function NFTGallery({}) {
   return (
     <div className={styles.nft_gallery_page}>
       <div>
-        <div className={styles.fetch_selector_container}>
-          <h2>
-            Polygon Advocate: <br />
-            <span>The Quest NFTs</span>
-          </h2>
+        <div className={chinese_shangai.className}>
+          <div className={styles.fetch_selector_container}>
+            <h2>
+              Polygon Advocate: <br />
+              <span>The Quest NFTs</span>
+            </h2>
+          </div>
         </div>
+
         <div className={styles.inputs_container}>
           <div className={styles.input_button_container}>
             <input
@@ -116,30 +128,29 @@ function NftCard({ nft }) {
         {<img src={nft?.media}></img>}
       </div>
       <div className={styles.info_container}>
-          <div className={styles.title_container}>
-            <h3>{nft?.title}</h3>
-            <div className={styles.description_container_2}>
-              {
-                <a
-                  href={
-                    "https://opensea.io/assets/matic/" +
-                    nft.contract +
-                    "/" +
-                    nft.tokenId
-                  }
-                >
-                  <img src="./opensea-logo.svg" alt="opensea" />
-                </a>
-              }
-            </div>
+        <div className={styles.title_container}>
+          <h3 className={qatora.className}>{nft?.title}</h3>
+          <div className={styles.description_container_2}>
+            {
+              <a
+                href={
+                  "https://opensea.io/assets/matic/" +
+                  nft.contract +
+                  "/" +
+                  nft.tokenId
+                }
+              >
+                <img src="./opensea-logo.svg" alt="opensea" />
+              </a>
+            }
           </div>
-          <hr className={styles.separator} />
-          <div className={styles.symbol_contract_container}>
-          </div>
+        </div>
+        <hr className={styles.separator} />
+        <div className={styles.symbol_contract_container}></div>
 
-          <div className={styles.description_container}>
-            <p>{nft?.description ? nft?.description : null}</p>
-          </div>
+        <div className={styles.description_container}>
+          <p>{nft?.description ? nft?.description : null}</p>
+        </div>
       </div>
     </div>
   ) : null;
