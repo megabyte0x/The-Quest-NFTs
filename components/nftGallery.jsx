@@ -14,7 +14,7 @@ const qatora = localFont({
 export default function NFTGallery({}) {
   const [nfts, setNfts] = useState();
   const [walletOrCollectionAddress, setWalletOrCollectionAddress] = useState(
-    "0x2D2E4c335EEE674Bd8F2EB3622E4156EbAbC864d"
+    "0x2Acdf6a2f893687CcD341a1Ad7e27102b665d8c4"
   );
   const [pageKey, setPageKey] = useState();
 
